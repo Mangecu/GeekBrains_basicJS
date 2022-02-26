@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  mathOperation ();
+
+  function mathOperation () {
+    const arg1 = +prompt("Введите первое число");
+    const arg2 = +prompt("Введите второе число");
+    const operation = prompt("Введите действие, которое хотите совершить? \n " + 
+    "( + ,  - ,  * ,  / )");
+    
+    switch (operation) {
+      case '+':
+        console.log(`Первое число: ${arg1}`);
+        console.log(`Второе число: ${arg2}`);
+        sum (arg1, arg2);
+        break
+      case '-':
+        console.log(`Первое число: ${arg1}`);
+        console.log(`Второе число: ${arg2}`);
+        diff (arg1, arg2);
+        break
+      case '*':
+        console.log(`Первое число: ${arg1}`);
+        console.log(`Второе число: ${arg2}`);
+        multi (arg1, arg2);
+        break
+      case '/':
+        console.log(`Первое число: ${arg1}`);
+        console.log(`Второе число: ${arg2}`);
+        quotient (arg1, arg2);
+        break
+      default:
+        return NaN;
+    }
+  }
+
+  /**
+   * Возвращает сумму двух чисел
+   * 
+   * @param {number} arg1 - первое число
+   * @param {number} arg2 - второе число
+   * @return {number} Сумма чисел
+  */
+  function sum (arg1, arg2) {
+    let sum = arg1 + arg2;
+    return console.log(`Сумма равна: ${sum}`);  
+  }
+
+  /**
+   * Возвращает разность двух чисел
+   * 
+   * @param {number} arg1 - первое число
+   * @param {number} arg2 - второе число
+   * @return {number} Разность чисел
+  */
+  function diff (arg1, arg2) {
+    if (arg1 > arg2) {
+      return console.log(`Разность равна: ${arg1 - arg2}`);
+    } else if (arg2 > arg1) {
+      return console.log(`Разность равна: ${arg2 - arg1}`);  
+    } else if (arg1 === arg2) {
+      return console.log("Разность равна: 0");
+    }  
+  }
+
+  /**
+   * Возвращает произведение двух чисел
+   * 
+   * @param {number} arg1 - первое число
+   * @param {number} arg2 - второе число
+   * @return {number} Произведение чисел
+  */
+  function multi (arg1, arg2) {
+    let multi = arg1 * arg2;
+    return console.log(`Произведение равно: ${multi}`);  
+  }
+
+  /**
+   * Возвращает частное двух чисел
+   * 
+   * @param {number} arg1 - первое число
+   * @param {number} arg2 - второе число
+   * @return {number} Частное чисел
+  */
+  function quotient (arg1, arg2) {
+    let quot = arg1 / arg2;
+    return console.log(`Частное равно: ${quot}`);  
+  }
+</script>
+</body>
+</html>
