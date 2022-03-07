@@ -22,6 +22,7 @@
 
 ---
 
+
 Необходимо создать функцию-конструктор/класс для закрепленного поста в
 социальной сети.
 Названия: `AttachedPostES5` для es5 стиля и `AttachedPostES6` для es6 стиля.
@@ -50,7 +51,99 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  // ---------------------ES5---------------------------
+
+  function PostES5 (author, text) {
+    this.author = author;
+    this.text = text;
+    this.date = new Date ();
+  }
+
+  PostES5.prototype.edit = function () {
+    this.text = 'Внёс изменения в посте';
+    this.date = new Date ();
+  };
+
+  const author1 = new PostES5('Alex', "Создал пост");
+  console.log(author1);
+  author1.edit();
+  console.log(author1);
+
+  function AttachedPostES5 (author, text) {
+    PostES5.call(this, author, text);
+    this.highlighted = false;
+  }
+
+  AttachedPostES5.prototype = Object.create(PostES5.prototype);
+  AttachedPostES5.prototype.constructor = AttachedPostES5;
+
+  AttachedPostES5.prototype.makeTextHighlighted = function () {
+    if (this.highlighted === false) {
+      this.highlighted = true;
+    } else if (this.highlighted === true){
+      this.highlighted = false;
+    }
+  }
+
+  //P.S.: в makeTextHighlighted захотел поиграть с флагами, потому что ранее
+  // сталкивался с проблемой понимая как работаю флаги
+
+  const attachAuthor1 = new AttachedPostES5('Mark', 'Создал закрепляемый пост');
+  console.log(attachAuthor1);
+  attachAuthor1.edit();
+  console.log(attachAuthor1);
+  attachAuthor1.makeTextHighlighted();
+  console.log(attachAuthor1);
+
+
+
+  //----------------------ES6---------------------------
+
+  class PostES6 {
+    constructor(author, text) {
+      this.author = author;
+      this.text = text;
+      this.date = new Date ();  
+    }
+
+    edit = function () {
+      this.text = 'Внёс изменения в посте';
+      this.date = new Date ();  
+    }
+  }
+
+  const author2 = new PostES6('Sam', "Создал пост");
+  console.log(author2);
+  author2.edit();
+  console.log(author2);
+
+  class attachedPostES6 extends PostES6 {
+    constructor(author, text) {
+      super(author, text);
+      this.highlighted = false;
+      this.date = new Date ();
+    }
+
+    makeTextHighlighted = function () {
+      if (this.highlighted === false) {
+        this.highlighted = true;
+      } else if (this.highlighted === true){
+        this.highlighted = false;
+      } 
+    }
+  }
+
+  //P.S.: в makeTextHighlighted захотел поиграть с флагами, потому что ранее
+  // сталкивался с проблемой понимая как работаю флаги
+
+  const attachAuthor2 = new attachedPostES6('Marcus', 'Создал закрепляемый пост');
+  console.log(attachAuthor2);
+  attachAuthor2.edit();
+  console.log(attachAuthor2);
+  attachAuthor2.makeTextHighlighted();
+  console.log(attachAuthor2);
+
+
 </script>
 </body>
 </html>

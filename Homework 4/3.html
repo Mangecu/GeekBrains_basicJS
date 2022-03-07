@@ -5,6 +5,8 @@
   <title>Homework</title>
 </head>
 <body>
+
+  <button onclick="getDigitsOfNumber()">Нажми и всё поймёшь</button>
 <!--
 Необязательное задание.
 
@@ -31,7 +33,26 @@
 <script>
   "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  function getDigitsOfNumber () {
+    let obj = {};
+    const number = +prompt('Введите число от 0 до 999');
+    check(number);
+    obj.hundreds = Math.floor(number / 100);
+    obj.dozens = Math.floor((number - (obj.hundreds * 100)) / 10);
+    obj.units = number - ((obj.hundreds * 100) + (obj.dozens * 10));
+
+    return console.log(obj);
+  }
+
+  function check (number) {
+    if (number % 1 === 0 && number >= 0 && number <= 999) {
+      return number
+    } else {
+      console.log('Ошибка!!! Введите число от 0 до 999');
+      let obj = {};
+      console.log(obj);
+    }
+  }
 </script>
 </body>
 </html>
