@@ -33,6 +33,11 @@
 <script>
   "use strict";
 
+  /**
+   * Функция разбивает число на сотни, десятки, единицы
+   * @param {object} obj - объект в который складываем сотни, десятки, единицы
+   * @param {number} number - переменная которая является входным числом
+  */
   function getDigitsOfNumber () {
     let obj = {};
     const number = +prompt('Введите число от 0 до 999');
@@ -44,6 +49,10 @@
     return console.log(obj);
   }
 
+  /**
+   * Функци, проверяющая число на условия по заданию
+   * Проверяет на целочисленность и входит ли число в интервал по условию задачи
+  */
   function check (number) {
     if (number % 1 === 0 && number >= 0 && number <= 999) {
       return number
