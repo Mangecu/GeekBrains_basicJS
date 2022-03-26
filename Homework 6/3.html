@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+  <style>
+    i {
+      font-size: 50px;
+      background-color: #87CEEB;
+    }
+    .golden {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
+стирать, код с решением задачи пишем под комментарием.
+-->
+
+<div class="stars_container">
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+  <i class="fas fa-star"></i>
+</div>
+
+<script>
+  "use strict";
+
+  /*
+  1. При наведении на любую из звезд, данной звезде должен ставиться класс
+  golden, также такой класс должен ставиться всем звездам до нее слева.
+  */
+  
+  const stars = document.querySelectorAll('.fas');
+  const starsContainer = document.querySelector('.stars_container');
+  
+  starsContainer.addEventListener('mouseover', el => {
+    if (!el.target.classList.contains('fas')) {
+      return
+    }
+    for (let star of stars) {
+      star.classList.add('golden');
+      if (star === el.target) {
+        break
+      }
+    }  
+  })
+  
+  /*
+  2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
+  задания должны быть удалены.
+   */
+   starsContainer.addEventListener('mouseout', el => {
+     for (let star of stars) {
+       if (star.classList.contains('golden')) {
+         star.classList.remove('golden');
+       }
+     }
+   })
+
+  /*
+  3. Когда мы переводим мышь от одной звезды к другой, у нас могут мигать
+  звезды (временно могут становиться черными). Почему так? Напишите словами.
+  Можем ли мы это исправить? Если да, то предложите решение.
+  */
+
+  /*
+  Почему так происходит! Ответ: потому что между блоками <i> есть пространство,
+                                и оно не имеет классов fas fa-star, следовательно
+                                звездачки начинают подмигивать.
+  Единственное что мне пришло в голову как решить эту проблему, так это с помощью
+  CSS расположить их подряд, например сделать блоки шире чтоб звезды не слипались 
+  и поставить их подряд
+  По поводу как это сделать через JS не имел педставление, до просмотра видио.
+  Попробовал сам сделать и получился следующий результат
+  */
+  for (let node of starsContainer.childNodes) {
+    if (node.nodeName === '#text') {
+      starsContainer.removeChild(node);
+    }
+  }
+  
+</script>
+</body>
+</html>
