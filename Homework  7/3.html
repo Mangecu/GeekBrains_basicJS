@@ -24,13 +24,26 @@
    * @returns {number} - Набольшее число из набора цифр числа, переданного в
    * параметр "n"
    */
-  function descendingOrder(n) {
 
+  
+  function descendingOrder(n) {
+    let num = n.toString();
+    let arrNum = [];
+    
+    if (isNaN(+num)){
+      return
+    }
+    for (let i = 0; i < num.length; i++) {
+      arrNum.push(num[i]);
+    }
+    let sortNum = arrNum.sort((a, b) => b - a);
+    return +sortNum.join('');
   }
 
   console.log(descendingOrder(42145)); // 54421
   console.log(descendingOrder(145263)); // 654321
   console.log(descendingOrder(123456789)); // 987654321
+  
 </script>
 </body>
 </html>
