@@ -208,14 +208,14 @@ function renderCart (id, name, count, price) {
 function renderGoodsInCart (id, name, count, price) {
    const productRow = `
       <div class="basketItem" id=${id}>
-            <div>${name}</div>
+         <div>${name}</div>
             <div>
                <span class="basketItemCount">${count}</span> шт
             </div>
             <div>$${price}</div>
             <div>
-                $<span class="basketItemTotal">${(price * count).toFixed(2)}</span>
-            </div>
+               $<span class="basketItemTotal">${(price * count).toFixed(2)}</span>
+         </div>
       </div>
    `;
    basketContainer.insertAdjacentHTML('beforeend', productRow); 
