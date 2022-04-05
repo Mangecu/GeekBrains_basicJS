@@ -2,7 +2,7 @@
 
 const products = [
    {
-		id: 1,   
+      id: 1,   
       nameOne: "Product 1",
       nameTwo: "ELLERY X M'O CAPSULE",
       text: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
@@ -11,43 +11,43 @@ const products = [
    },
    {
       id: 2,
-		nameOne: "Product 2",
-		nameTwo: "ELLERY X M'O CAPSULE",
-		text: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
-		count: 1,
-		price: 62.00.toFixed(2)
+      nameOne: "Product 2",
+      nameTwo: "ELLERY X M'O CAPSULE",
+      text: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+      count: 1,
+      price: 62.00.toFixed(2)
    },
    {
-		id: 3,
-		nameOne: "Product 3",
-		nameTwo: "ELLERY X M'O CAPSULE",
-		text: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
-		count: 1,
-		price: 72.00.toFixed(2)
+      id: 3,
+      nameOne: "Product 3",
+      nameTwo: "ELLERY X M'O CAPSULE",
+      text: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+      count: 1,
+      price: 72.00.toFixed(2)
    },
    {
-		id: 4,
-		nameOne: "Product 4",
-		nameTwo: "ELLERY X M'O CAPSULE",
-		text: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
-		count: 1,
-		price: 82.00.toFixed(2)
+      id: 4,
+      nameOne: "Product 4",
+      nameTwo: "ELLERY X M'O CAPSULE",
+      text: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+      count: 1,
+      price: 82.00.toFixed(2)
    },
    {
-		id: 5,
-		nameOne: "Product 5",
-		nameTwo: "ELLERY X M'O CAPSULE",
-		text: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
-		count: 1,
-		price: 22.00.toFixed(2)
+      id: 5,
+      nameOne: "Product 5",
+      nameTwo: "ELLERY X M'O CAPSULE",
+      text: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+      count: 1,
+      price: 22.00.toFixed(2)
    },
    {
-		id: 6,
-		nameOne: "Product 6",
-		nameTwo: "ELLERY X M'O CAPSULE",
-		text: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
-		count: 1,
-		price: 32.00.toFixed(2)
+      id: 6,
+      nameOne: "Product 6",
+      nameTwo: "ELLERY X M'O CAPSULE",
+      text: "Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams up with Moda Operandi.",
+      count: 1,
+      price: 32.00.toFixed(2)
    },
 ]
 
@@ -67,27 +67,27 @@ for (let good of products) {
  */
 function makeGoodItem (id, name, text, price) {	
    return `
-		<div class="featuredItem">
-			<div class="featuredImgWrap">
-				<img src="images/featured/${id}.jpg" alt="">
-				<div class="featuredImgDark">
-					<button id="btnToCart" data-id=${id}>
-						<img src="images/cart.svg" alt=""> Add to Cart
-					</button>
-				</div>
-			</div>
-			<div class="featuredData">
-				<div class="featuredName">
-					${name}
-				</div>
-				<div class="featuredText">
-					${text}
-				</div>
-				<div class="featuredPrice">
-					$${price}
-				</div>
-			</div>
-		</div>`
+      <div class="featuredItem">
+         <div class="featuredImgWrap">
+            <img src="images/featured/${id}.jpg" alt="">
+            <div class="featuredImgDark">
+               <button id="btnToCart" data-id=${id}>
+                  <img src="images/cart.svg" alt=""> Add to Cart
+               </button>
+            </div>
+         </div>
+         <div class="featuredData">
+            <div class="featuredName">
+               ${name}
+            </div>
+            <div class="featuredText">
+               ${text}
+            </div>
+            <div class="featuredPrice">
+               $${price}
+            </div>
+         </div>
+      </div>`
 }
 
 //Находим span над карзиной, который будет меняться при добавлении товаров в корзину
@@ -117,7 +117,7 @@ let basketContainer = document.querySelector('.basketContainer');
  */
 btnCart.addEventListener('click', el => {
    if (!el.target.classList.contains('cartIcon')) {
-		return
+      return
    }
    if (basket.classList.contains('hidden') & cartCount.textContent > '0') {
       basket.classList.remove('hidden');
